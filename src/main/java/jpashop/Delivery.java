@@ -2,7 +2,7 @@ package jpashop;
 import javax.persistence.*;
 
 @Entity
-public class Delivery {
+public class Delivery extends BaseEntity {
 
     @Id
     @GeneratedValue
