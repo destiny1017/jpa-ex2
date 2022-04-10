@@ -15,10 +15,6 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Book book = new Book();
-            book.setAuthor("KDH");
-            book.setIsbn("910022202342");
-            em.persist(book);
 
             tx.commit();
         } catch(Exception e) {

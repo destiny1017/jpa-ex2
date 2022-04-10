@@ -1,6 +1,8 @@
 package jpashop;
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 public class Delivery extends BaseEntity {
 
@@ -11,6 +13,9 @@ public class Delivery extends BaseEntity {
 
     private String street;
     private String zipCode;
+
+    @OneToOne(mappedBy = "delivery", fetch = LAZY)
+    private Order order;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
@@ -45,5 +50,13 @@ public class Delivery extends BaseEntity {
 
     public void setStatus(DeliveryStatus status) {
         this.status = status;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
