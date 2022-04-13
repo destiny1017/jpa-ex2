@@ -11,8 +11,8 @@ public class Delivery extends BaseEntity {
     @Column(name = "DELIVERY_ID")
     private Long id;
 
-    private String street;
-    private String zipCode;
+    @Embedded
+    private Address address;
 
     @OneToOne(mappedBy = "delivery", fetch = LAZY)
     private Order order;
@@ -26,22 +26,6 @@ public class Delivery extends BaseEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
     }
 
     public DeliveryStatus getStatus() {
@@ -58,5 +42,13 @@ public class Delivery extends BaseEntity {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
